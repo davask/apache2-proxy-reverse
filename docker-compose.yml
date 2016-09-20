@@ -16,5 +16,4 @@ d-apache2-proxy-reverse:
   image: d-apache2-proxy-reverse:2.4-u14.04
   volumes:
   - /path/to/proxy/sites-enabled:/etc/apache2/sites-enabled
-  - /path/to/files:/home/username/files
   stdin_open: true
