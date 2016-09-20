@@ -4,15 +4,17 @@ d-apache2-proxy-reverse:
   - 80:80/tcp
   - 2222:22/tcp
   environment:
-    DWL_USER_NAME: dwl
-    DWL_USER_PASSWD: dwl
+    DWL_LOCAL: en_US.UTF-8
+    DWL_USER_NAME: username
+    DWL_USER_PASSWD: secret
+    DWL_SSH_ACCESS: false
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
   hostname: dev.davaskweblimited.com
-  image: davask/d-apache2-proxy-reverse:2.4-u14.04
+  image: d-apache2-proxy-reverse:2.4-u14.04
   volumes:
-  - /home/dwl/dwl-monitoring/proxy/sites-enabled:/etc/apache2/sites-enabled
-  - /home/dwl/dwl-monitoring/proxy/tmp:/home/dwl/tmp
+  - /path/to/proxy/sites-enabled:/etc/apache2/sites-enabled
+  - /path/to/files:/home/username/files
   stdin_open: true

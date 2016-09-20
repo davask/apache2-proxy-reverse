@@ -1,10 +1,6 @@
-FROM davask/d-apache2-openssl:2.4-u14.04
-MAINTAINER davask <contact@davaskweblimited.com>
-USER root
+FROM davask/d-apache2:2.4-u14.04
+MAINTAINER davask <docker@davaskweblimited.com>
 LABEL dwl.server.proxy="proxy"
-
-# declare container type
-ENV DWL_INIT proxy
 
 # install proxy
 RUN a2enmod proxy
