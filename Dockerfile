@@ -11,3 +11,8 @@ RUN a2enmod proxy_balancer
 RUN a2enmod proxy_connect
 RUN a2enmod proxy_html
 RUN a2enmod xml2enc
+
+RUN /bin/bash -c 'for conf in `find /etc/apache2/sites-enabled/ -type l`; do rm ${conf}; done;'
+RUN /bin/bash -c 'for conf in `find /etc/apache2/sites-available/ -type f`; do rm ${conf}; done;'
+# Configure apache virtualhost.conf
+RUN /bin/bash -c 'cp -f /tmp/dwl/virtualhost.conf /etc/apache2/sites-available/${DWL_USER_DNS}.conf'
