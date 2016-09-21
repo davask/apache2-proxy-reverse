@@ -1,32 +1,7 @@
 # dockerfile
 
-## Open port
-- 22
-- 80
-- 443
-
-## Default ENV values
-
-### Define Default LANG LOCAL
-> DWL_LOCAL en_US.UTF-8
-
-### Define username:passwd for ssh access
-> DWL_USER_NAME username
-
-> DWL_USER_PASSWD secret
-
-### Define if ssh and sftp access are accepted
-> DWL_SSH_ACCESS false
-
-### Base activation
-
-### Apache2 activation
+see [FROM IMAGE README.md](https://github.com/davask/d-apache2)
 
 ## LABEL
-> dwl.server.os="ubuntu 14.04"
-
-> dwl.server.base="ubuntu 14.04"
-
-> dwl.server.http="apache 2.4"
 
 > dwl.server.proxy="proxy"
