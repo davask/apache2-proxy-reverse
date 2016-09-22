@@ -7,7 +7,6 @@ d-apache2-proxy-reverse:
     DWL_USER_PASSWD: dwl
     DWL_SSH_ACCESS: 'true'
     DWL_USER_ID: '1000'
-    DWL_USER_DNS: proxy-reverse.davaskweblimited.com
   labels:
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
@@ -27,7 +26,6 @@ d-apache2:
     DWL_USER_PASSWD: dwl
     DWL_SSH_ACCESS: 'true'
     DWL_USER_ID: '1000'
-    DWL_USER_DNS: apache2.davaskweblimited.com
   labels:
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
