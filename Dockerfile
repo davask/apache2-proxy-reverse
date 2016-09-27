@@ -1,23 +1,13 @@
-FROM davask/d-apache2:latest
-MAINTAINER davask <contact@davaskweblimited.com>
+FROM davask/d-apache:2.4-u16.04
+MAINTAINER davask <docker@davaskweblimited.com>
+LABEL dwl.server.proxy="proxy"
 
-LABEL dwl.server.proxy="apache2"
-
-RUN apt-get update
-RUN apt-get install -y apache2-utils
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN a2enmod proxy
-RUN a2enmod proxy_http
-RUN a2enmod proxy_ajp
-RUN a2enmod deflate
-RUN a2enmod proxy_balancer
-RUN a2enmod proxy_connect
-RUN a2enmod proxy_html
-RUN a2enmod xml2enc
-
-# Declare instantiation counter
-ENV DWL_INIT_COUNT 2
-# Copy instantiation specific file
-COPY ./proxy-reverse.sh $DWL_INIT_DIR/$DWL_INIT_COUNT-proxy-reverse.sh
-
+# install proxy
+RUN /bin/bash -c 'a2enmod proxy'
+RUN /bin/bash -c 'a2enmod proxy_http'
+RUN /bin/bash -c 'a2enmod proxy_ajp'
+RUN /bin/bash -c 'a2enmod deflate'
+RUN /bin/bash -c 'a2enmod proxy_balancer'
+RUN /bin/bash -c 'a2enmod proxy_connect'
+RUN /bin/bash -c 'a2enmod proxy_html'
+RUN /bin/bash -c 'a2enmod xml2enc'

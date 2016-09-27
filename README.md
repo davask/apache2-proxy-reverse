@@ -1,2 +1,7 @@
-# apache2-proxy-reverse
-dockerfile base for apache2 proxy-reverse
+# dockerfile
+
+see [FROM IMAGE README.md](https://github.com/davask/d-apache)
+
+## LABEL
+
+> dwl.server.proxy="proxy"
