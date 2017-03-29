@@ -1,18 +1,21 @@
 d-apache-proxy-reverse:
   ports:
-  - 2222:22/tcp
   - 80:80/tcp
+  - 22:22/tcp
   environment:
-    DWL_SSH_ACCESS: 'true'
-    DWL_USER_NAME: username
-    DWL_USER_PASSWD: secret
+    DWL_LOCAL: en_US.UTF-8
     DWL_USER_ID: '1000'
+    DWL_USER_PASSWD: secret
+    DWL_LOCAL_LANG: en_US:en
+    DWL_USER_NAME: username
+    DWL_SSH_ACCESS: 'true'
+  log_driver: syslog
   labels:
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
-  tty: true
-  hostname: proxy-reverse.davaskweblimited.com
   image: davask/d-apache-proxy-reverse:2.4-u14.04
+  hostname: private.davaskweblimited.com
   volumes:
-  - /path/to/files:/home/username/files
-  - /path/to/sites-available:/etc/apache2/sites-available
-  stdin_open: true
+  - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/home/username/files:/home/username/files
+  - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/home/username/http/app/sites-available:/etc/apache2/sites-available
+  working_dir: /var/www/html
+
