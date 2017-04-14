@@ -20,14 +20,14 @@ echo "d-apache-proxy-reverse:
     DWL_LOCAL_LANG: en_US:en
     DWL_USER_NAME: username
     DWL_SSH_ACCESS: 'true'
-  log_driver: syslog
-  labels:
-    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
+    DWL_SHIELD_HTTP: 'false'
   image: davask/d-apache-proxy-reverse:${branch}
-  hostname: private.davaskweblimited.com
+  hostname: localhost
+  net: bridge
   volumes:
-  - ${rootDir}/volumes/home/username/files:/home/username/files
+  - ${rootDir}/volumes/proxy/log/localhost/apache2:/var/log/apache2
   - ${rootDir}/volumes/home/username/http/app/sites-available:/etc/apache2/sites-available
+  - ${rootDir}/volumes/home/username/files:/home/username/files
   working_dir: /var/www/html
 " > ${rootDir}/docker-compose.yml
 

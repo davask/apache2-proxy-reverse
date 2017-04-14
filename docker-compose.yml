@@ -9,13 +9,13 @@ d-apache-proxy-reverse:
     DWL_LOCAL_LANG: en_US:en
     DWL_USER_NAME: username
     DWL_SSH_ACCESS: 'true'
-  log_driver: syslog
-  labels:
-    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
+    DWL_SHIELD_HTTP: 'false'
   image: davask/d-apache-proxy-reverse:2.4-u14.04
-  hostname: private.davaskweblimited.com
+  hostname: localhost
+  net: bridge
   volumes:
-  - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/home/username/files:/home/username/files
+  - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/proxy/log/localhost/apache2:/var/log/apache2
   - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/home/username/http/app/sites-available:/etc/apache2/sites-available
+  - /home/dwl/docker-images/proxy/d-apache-proxy-reverse/volumes/home/username/files:/home/username/files
   working_dir: /var/www/html
 

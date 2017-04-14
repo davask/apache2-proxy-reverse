@@ -20,7 +20,7 @@ buildDir=`readlink -m "${thisDir}/build"`;
 
 sudo docker build -t davask/d-apache-proxy-reverse:${branch} ${thisDir};
 
-echo "sudo docker run --name d-apache-proxy-reverse -tdi -p 80:80/tcp -p 2222:22/tcp --label io.rancher.scheduler.affinity:host_label=dwl=dwlComPrivate davask/d-apache-proxy-reverse:${branch}";
-echo "http://public.ginkgo-migration.com:6408/env/1a5/apps/add-service?environmentId=&containerId=";
+echo "sudo docker run --name d-apache-proxy-reverse -tdi -p 80:80/tcp -p 2222:22/tcp davask/d-apache-proxy-reverse:${branch}";
+
 
 exit 1;
