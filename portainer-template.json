@@ -5,7 +5,9 @@
     "logo": "http://a4.mzstatic.com/us/r30/Purple20/v4/eb/79/97/eb799779-3891-385e-8afe-df11c01fd6d9/icon128-2x.png",
     "image": "davask/d-apache-proxy-reverse:2.4-u14.04",
     "ports": [
-        "22/tcp"
+        "22/tcp",
+        "80/tcp",
+        "443/tcp"
     ],
     "env": [
         {
@@ -59,11 +61,11 @@
         }
     ],
     "volumes": [
-        "/home/username,
-/var/log/apache2,
-/etc/apache2/sites-available,
-/etc/apache2/ssl,
-/etc/letsencrypt"
+        "/home/username",
+        "/var/log/apache2",
+        "/etc/apache2/sites-available",
+        "/etc/apache2/ssl",
+        "/etc/letsencrypt"
     ]
   }
 ]
