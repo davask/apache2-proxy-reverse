@@ -1,5 +1,6 @@
 FROM davask/d-apache:2.4-u14.04
 MAINTAINER davask <docker@davaskweblimited.com>
+USER root
 LABEL dwl.server.proxy="proxy"
 
 # http://stackoverflow.com/questions/7312215/is-there-a-way-to-remove-apaches-reverse-proxy-request-headers?answertab=votes#tab-top
@@ -19,4 +20,5 @@ COPY ./build/dwl/default/etc/apache2/sites-available/_proxy-rules.conf /dwl/defa
 RUN cp -rdf /dwl/default/etc/apache2/sites-available/_proxy-rules.conf /etc/apache2/sites-available/_proxy-rules.conf
 
 COPY ./build/dwl/default/etc/apache2/sites-available/0000-docker.davaskweblimited.com-80.conf /dwl/default/etc/apache2/sites-available/0000-docker.davaskweblimited.com-80.conf
+USER admin
 
