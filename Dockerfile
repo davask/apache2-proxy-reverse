@@ -7,7 +7,15 @@ LABEL dwl.server.proxy="proxy"
 # https://www.x4b.net/kb/RealIP-Apache
 
 # install proxy
-RUN a2enmod proxy proxy_http proxy_ajp deflate proxy_balancer proxy_connect proxy_html xml2enc
+RUN a2enmod \
+proxy \
+proxy_http \
+proxy_ajp \
+deflate \
+proxy_balancer \
+proxy_connect \
+proxy_html \
+xml2enc
 
 COPY ./build/dwl/default/etc/apache2/sites-available/* /dwl/default/etc/apache2/sites-available/
 RUN cp -rdf /dwl/default/etc/apache2/sites-available/_proxy-rules.conf /etc/apache2/sites-available/_proxy-rules.conf
