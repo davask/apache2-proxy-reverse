@@ -2,7 +2,6 @@ app:
   ports:
     - 42002:22/tcp
     - 42000:80/tcp
-    - 42003:443/tcp
   environment:
     DWL_LOCAL_LANG: 'en_US:en'
     DWL_LOCAL: 'en_US.UTF-8'
@@ -13,13 +12,6 @@ app:
     DWL_HTTP_SERVERADMIN: 'admin@localhost'
     DWL_HTTP_DOCUMENTROOT: '/var/www/html'
     DWL_HTTP_SHIELD: 'false'
-    DWL_SSLKEY_C: 'EU'
-    DWL_SSLKEY_ST: 'France'
-    DWL_SSLKEY_L: 'Vannes'
-    DWL_SSLKEY_O: 'davask web limited - docker container'
-    DWL_SSLKEY_CN: 'davaskweblimited.com'
-    DWL_CERTBOT_EMAIL: 'admin@localhost'
-    DWL_CERTBOT_DEBUG: 'true'
   tty: true
   hostname: localhost
   image: davask/d-apache-proxy-reverse:2.4-d8.8
@@ -28,7 +20,5 @@ app:
     - ./volumes/home/username:/home/username
     - ./volumes/var/log/apache2:/var/log/apache2
     - ./volumes/etc/apache2/sites-available:/etc/apache2/sites-available
-    - ./volumes/etc/apache2/ssl:/etc/apache2/ssl
-    - ./volumes/etc/letsencrypt:/etc/letsencrypt
 
 # export COMPOSE_HTTP_TIMEOUT=600; docker-compose -f /home/dwl/docker-images/proxy/d-apache-proxy-reverse/docker-compose.yml up -d
