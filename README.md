@@ -25,6 +25,7 @@
 ## Available volumes
 
 - /home/host
+- /etc/apache2/sites-available
 ## LABEL
 
 - dwl.server.os="apache 2.4-d8.8"

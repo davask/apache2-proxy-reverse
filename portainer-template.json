@@ -39,7 +39,8 @@
         }
     ],
     "volumes": [
-        "/home/host"
+        "/home/host",
+        "/etc/apache2/sites-available"
     ]
   }
 ]
