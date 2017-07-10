@@ -6,8 +6,7 @@
     "image": "davask/d-apache-proxy-reverse:2.4-d8.8",
     "ports": [
         "22/tcp",
-        "80/tcp",
-        "443/tcp"
+        "80/tcp"
     ],
     "env": [
         {
@@ -31,41 +30,16 @@
         },{
             "name": "DWL_HTTP_SERVERADMIN",
             "label": "Server Admin email address [admin@localhost]"
-        },{
+        }{
             "name": "DWL_HTTP_DOCUMENTROOT",
-            "label": "Document root [/var/www/html]"
-        },{
+            "label": "Document root [/var/www]"
+        }{
             "name": "DWL_HTTP_SHIELD",
             "label": "htpasswd activated [false]"
-        }{
-            "name": "DWL_SSLKEY_C",
-            "label": "Country Name (2 letter code) [EU]"
-        }{
-            "name": "DWL_SSLKEY_ST",
-            "label": "State or Province Name (full name) [France]"
-        }{
-            "name": "DWL_SSLKEY_L",
-            "label": "Locality Name (eg, city) [Vannes]"
-        }{
-            "name": "DWL_SSLKEY_O",
-            "label": "Organization Name (eg, company) [davask web limited - docker container]"
-        }{
-            "name": "DWL_SSLKEY_CN",
-            "label": "Common Name (e.g. server FQDN or YOUR name) [davaskweblimited.com]"
-        }{
-            "name": "DWL_CERTBOT_EMAIL",
-            "label": "Certbot email contact [admin@localhost]"
-        }{
-            "name": "DWL_CERTBOT_DEBUG",
-            "label": "Certbot debug mode [true]"
         }
     ],
     "volumes": [
-        "/home/username",
-        "/var/log/apache2",
-        "/etc/apache2/sites-available",
-        "/etc/apache2/ssl",
-        "/etc/letsencrypt"
+        "/home/host"
     ]
   }
 ]
