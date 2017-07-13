@@ -18,7 +18,7 @@ proxy_html \
 xml2enc
 
 COPY ./build/dwl/etc/apache2/sites-available/* /dwl/etc/apache2/sites-available/
-RUN cp -rdf /dwl/etc/apache2/sites-available/0000_proxy.rules_0.conf /etc/apache2/sites-available/0000_rules-proxy_0.conf
+RUN cp -rdf /dwl/etc/apache2/sites-available/0000_proxy.rules_0.conf /etc/apache2/sites-available/0000_proxy.rules_0.conf
 
 RUN chmod +x /dwl/init.sh && chown root:sudo -R /dwl
 USER admin
